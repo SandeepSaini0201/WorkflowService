@@ -1,10 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <aspectj>
     <aspects>
         <aspect name="com.amazonaws.services.simpleworkflow.flow.aspectj.AsynchronousAspect"/>
         <aspect name="com.amazonaws.services.simpleworkflow.flow.aspectj.ExponentialRetryAspect"/>
     </aspects>
+
     <weaver options="-verbose -showWeaveInfo">
-        <include within="com.crptm.ws.workflow.impl.HelloWorldWorkflowImpl"/>
-        <include within="com.crptm.ws.activity.impl.HelloWorldActivityImpl"/>
+        <include within="com.crptm.ws.activity.*"/>
+        <include within="com.crptm.ws.workflow.*"/>
     </weaver>
 </aspectj>

@@ -4,9 +4,9 @@ import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow;
 import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder;
-import com.crptm.ws.workflow.interfaces.IHelloWorldWorkflowClientExternal;
-import com.crptm.ws.workflow.interfaces.IHelloWorldWorkflowClientExternalFactory;
-import com.crptm.ws.workflow.interfaces.IHelloWorldWorkflowClientExternalFactoryImpl;
+//import com.crptm.ws.workflow.interfaces.IHelloWorldWorkflowClientExternal;
+//import com.crptm.ws.workflow.interfaces.IHelloWorldWorkflowClientExternalFactory;
+//import com.crptm.ws.workflow.interfaces.IHelloWorldWorkflowClientExternalFactoryImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -26,13 +26,12 @@ public class ExecuteHelloWorldWorkflowController {
                     .withRegion(Regions.US_EAST_1)
                     .build();
 
-            IHelloWorldWorkflowClientExternalFactory factory = new IHelloWorldWorkflowClientExternalFactoryImpl(amazonSimpleWorkflow, "TestingDomain");
-            IHelloWorldWorkflowClientExternal greeter = factory.getClient("HelloWorldWorkflowExecutionId");
-            greeter.greet();
+//            IHelloWorldWorkflowClientExternalFactory factory = new IHelloWorldWorkflowClientExternalFactoryImpl(amazonSimpleWorkflow, "TestingDomain");
+//            IHelloWorldWorkflowClientExternal greeter = factory.getClient("HelloWorldWorkflowExecutionIds");
+//            greeter.greet();
 
             return new ResponseEntity<>("SUCCESS", new HttpHeaders(), HttpStatus.OK);
-        } catch (Exception e) {
-            log.error("Exception occur : ", e);
+        } catch (Exception e) {           
             return new ResponseEntity<>("ERROR", new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

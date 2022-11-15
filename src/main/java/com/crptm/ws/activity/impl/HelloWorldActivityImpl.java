@@ -16,7 +16,7 @@ public class HelloWorldActivityImpl implements IHelloWorldActivity {
 
     @Override
     public void sayGreetings(String greeting) {
-        log.info("Inside say greeting activity...");
+        System.out.print("Inside say greeting activity...");
         if (isExceptionExist) {
             isExceptionExist = false;
             throw new ActivityFailureException("Say greeting activity failed...");

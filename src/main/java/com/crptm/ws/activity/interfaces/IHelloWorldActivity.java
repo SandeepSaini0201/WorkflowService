@@ -7,10 +7,11 @@ import com.crptm.ws.exception.ActivityFailureException;
 import org.aspectj.lang.annotation.Aspect;
 
 @Aspect
-@Activities(version = "1.5")
+@Activities(version = "1.7")
 @ActivityRegistrationOptions(defaultTaskScheduleToStartTimeoutSeconds = 300, defaultTaskStartToCloseTimeoutSeconds = 300)
 public interface IHelloWorldActivity {
 
+    @ExponentialRetry(initialRetryIntervalSeconds = 1, maximumAttempts = 5, exceptionsToRetry = ActivityFailureException.class)
     String getGreetings();
 
     @ExponentialRetry(initialRetryIntervalSeconds = 1, maximumAttempts = 5, exceptionsToRetry = ActivityFailureException.class)
